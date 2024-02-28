@@ -1,0 +1,40 @@
+<%- include('partials/header.ejs'); -%>
+
+<h1>Edit</h1>
+<div class="form-container">
+    <form action = "/admin/edit/game" method="post">
+
+        <input type="hidden" name="updatedGameId" value="<%= game.id %>">
+    
+        <label for="updateTitle">Title:</label>
+        <input id="updateTitle" type="text" name="updatedTitle" value="<%= game.title%>" />
+        <br>
+        <label for="updateDate">Release Date:</label>
+        <input id="updateDate" type="text" name="updatedDate" value=<%= game.release_date.toLocaleDateString(); %> />
+        <br>
+        <label for="updatePicture">Game poster: </label>
+        <input id="updatePicture" type="text" name="updatedPicture" value="<%= game.picture_url %>">
+        <br>
+        <label for="updateDescription">Description: </label>
+        <br>
+        <textarea id="updateDescription" name="updatedDescription" row="200" cols="186"><%= game.description %></textarea>
+        <br>
+        <label for="updateReview">Review: </label>
+        <br>
+        <textarea id="updateReview" name="updatedReview" row="200" cols="186"><%= game.review %></textarea>
+        <br>
+        <label for="updateGenre">Genre:</label>
+        <input id="updateGenre" type="text" name="updatedGenre" value="<%= game.genre %>" />
+        <br>
+        <label for="updateMetacritic">Metacritic:</label>
+        <input id="updateMetacritic" type="number" name="updatedMetacritic" value="<%= game.metacritic %>" step="0.1" />
+        <br>
+        <label for="updateMyRating">My Rating:</label>
+        <input id="updateMyRating" type="number" name="updatedMyRating" value="<%= game.my_rating %>" step="0.1" />
+    
+        <button class="btn btn-admin-edit" style="color:white;" type="submit">Edit</button>
+        <button class="btn"><a style="text-decoration: none;" href="/admin">Cancel</a></button>
+    </form>
+</div>
+
+<%- include('partials/footer.ejs'); -%>

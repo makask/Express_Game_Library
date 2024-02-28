@@ -1,0 +1,33 @@
+<%- include('partials/header.ejs'); -%>
+
+<div class="main-container">
+    <%if(locals.game){%>
+        
+        <div class="game-card mt">
+            <div>
+                <img class="game-poster" src=<%= game.picture_url %>>
+            </div>   
+            <div>
+                <h3><%= game.title %></h3>
+                <p>Release date: <%= game.release_date.toLocaleDateString() %></p>
+                <p>Genre: <%= game.genre%></p>
+                <p>
+                    <%= game.description %>
+                </p>
+                <h3>My review</h3>
+                <p><%= game.review%></p>
+            </div>
+            <div class="ratings">
+                <p>My Rating: <%= game.my_rating %></p>
+                <p>Metacritic: <%= game.metacritic %></p>
+            </div>
+        </div>
+
+    <%}else{%>
+        <h1>Sorry there is no such game :</h1>
+    <%}%>
+
+</div>
+
+    
+<%- include('partials/footer.ejs'); -%>

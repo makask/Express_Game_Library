@@ -1,0 +1,120 @@
+body {
+    background-color: rgb(233, 235, 236);
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+}
+
+.game-card{
+    margin-bottom: 3rem;
+}
+
+.mt {
+    margin-top: 8rem;
+}
+
+.game-poster {
+    width: 18rem;
+    float: left;
+    margin-right: 1rem;
+}
+
+.game-poster-lg {
+    width: 30rem;
+    
+}
+
+.ratings{
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.btn {
+    width: 8rem;
+    height: 3rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    opacity: 40;
+    cursor: pointer;
+}
+
+.btn-admin-add {
+    background-color: green;
+    margin-bottom: 1rem;
+}
+
+.btn-admin-edit {
+    background-color: blue;
+}
+
+.btn-admin-add > a, .btn-admin-edit>a {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-admin-delete {
+    background-color: red;
+    color: white;
+    text-decoration: none;  
+}
+
+.admin-card {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.admin-items {
+    margin-top: 3rem;
+    width: 90%;
+    margin: auto;
+    margin-left: 10rem;
+}
+
+.admin-game-poster {
+    width: 16rem;
+    border-radius: 5px;
+}
+
+.admin-controls {
+    display: flex;
+    margin-left: 3rem;
+}
+
+.admin-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.form-container {
+    width: 80%;
+    margin:auto;
+}
+
+input {
+    width: 60%;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input:focus {
+    background-color: lightblue;
+  }
+
+
+

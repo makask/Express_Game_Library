@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs'); -%>
+
+<div class="main-container">
+    <h1><a href="/gameslist">MY GAME LIBRARY </a></h1>
+    <h2>GAMES I`VE COMPLETED</h2>
+    <h3>Tiny summary about games I have completed.  This page will constantly update as <br>I play more, so bookmark it if you want to check back in a few months.</h3>
+    <h3>Sorted with my top recommendations up top. Sort by <a href="/?sort=title">title</a>, <a href="/?sort=release_date">newest</a>, <a href="/?sort=metacritic">metacritic</a> or <a href="/?sort=my_rating">best</a>.</h3> 
+    <h3>Total games completed: <%= gameCounter %></h3>
+    <hr>
+    <%if(locals.games){%>
+        <%games.forEach((game) => {%>
+            <div class="game-card">
+                <div>
+                    <a name="gameId" value="<%= game.id %>" href="/game/<%= game.id %>"><img class="game-poster" src=<%= game.picture_url %>></a>
+                </div>   
+                <div>
+                    <h2><a href="/game/<%= game.id %>"><%= game.title %></a></h2>
+                    <p>Release date: <%= game.release_date.toLocaleDateString() %></p>
+                    <p>Genre: <a href="/?type=<%= game.genre %>"><%= game.genre%></a></p>
+                    <p><%= game.description %></p>
+                </div>
+                <div class="ratings">
+                    <p>My Rating: <strong><%= game.my_rating %></strong></p>
+                    <p>Metacritic: <strong><%= game.metacritic %></strong></p>
+                </div>
+            </div>
+        <%});%>
+
+    <%}else{%>
+        <div>
+            <h1>There are no games yet!</h1>
+        </div>
+    <%}%>
+</div>
+
+<%- include('partials/footer.ejs'); -%>

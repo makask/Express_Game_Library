@@ -1,0 +1,34 @@
+<%- include('partials/header.ejs'); -%>
+
+    <h1>Admin</h1>
+    <button class="btn btn-admin-add"><a href="/admin/add">Add</a></button>
+    <hr>
+    <div class="admin-items">
+        <% if(locals.games){ %>
+            <% games.forEach((game) => { %>
+                <div class="admin-card">
+                    <div>
+                        <a name="gameId" value="<%= game.id %>" href="/game/<%= game.id %>"><img class="admin-game-poster" src=<%= game.picture_url %>></a>
+                    </div>
+                    <div class="admin-controls">
+                        <div class="admin-buttons">
+                            <div style="width: 500px; text-align: center;">
+                                <h3><%= game.title %></h3>
+                            </div>
+                            <div style="width: 600px; display: flex; gap:1rem;">
+                                <button class="btn btn-admin-edit"><a href="/admin/edit/<%= game.id %>">Edit</a></button>
+                                <form action = "/admin/delete/<%=game.id%>" method="post">
+                                    <button class="btn btn-admin-delete" type="submit">Delete</button>
+                                </form>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% }else{ %>
+            <div>There are no games yet!</div>
+        <%}%>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs'); -%>

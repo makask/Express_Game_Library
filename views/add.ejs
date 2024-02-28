@@ -1,0 +1,75 @@
+<%- include('partials/header.ejs'); -%>
+
+<h1>Add </h1>
+
+<div class="form-container">
+    <form action="/admin/get-data" method="post">
+        <label for="search">Search title:</label>
+        <br>
+        <input id="search" type="text" name="search" placeholder="Enter game title"/>
+        <button class="btn" style="margin-bottom: 1rem;" type="submit">Search</button>
+    </form>
+    
+    <% if(locals.data){ %>
+        <img class="admin-game-poster" src="<%= data.imageURL%>" alt="Game poster" >
+    <% }else{ %>
+        <img class="admin-game-poster" src="/assets/default.PNG" alt="Default game poster" >
+    <% } %>
+    
+    <form action = "/admin/add" method="post">
+    
+        <label for="title">Title:</label>
+        <br>
+        <% if(locals.data){ %>
+            <input id="title" type="text" name="title" value="<%= data.title %>" />
+        <% }else{ %>
+            <input id="title" type="text" name="title" value="" placeholder="Add title" />
+        <% } %>
+        <br>
+        <label for="date">Release Date:</label>
+        <br>
+        <% if(locals.data){ %>
+            <input id="date" type="text" name="date" value="<%= data.releaseDate %>" />
+        <% }else{ %>
+            <input id="date" type="text" name="date" value="" placeholder="Add release date" />
+        <% } %>
+        <br>
+        <label for="pictureURL">Game poster: </label>
+        <br>
+        <% if(locals.data){ %>
+            <input id="pictureURL" type="text" name="pictureURL" value="<%= data.imageURL %>" />
+        <% }else{ %>
+            <input id="pictureURL" type="text" name="pictureURL" value="" placeholder="Add game poster URL" />
+        <% } %>
+        <br>
+        <label for="description">Description: </label>
+        <br>
+        <textarea id="description" name="description" row="200" cols="184">Add your description</textarea>
+        <br>
+        <label for="review">Review: </label>
+        <br>
+        <textarea id="review" name="review" row="200" cols="184">Add your game review</textarea>
+        <br>
+        <label for="genre">Genre:</label>
+        <br>
+        <input id="genre" type="text" name="genre" value="" placeholder="Add genre" />
+        <br>
+        <label for="metacritic">Metacritic:</label>
+        <br>
+        <% if(locals.data){ %>
+            <input id="metacritic" type="number" name="metacritic" value=<%= data.metacritic %> step="1" min="1" max="100" />
+        <% }else{ %>
+            <input id="metacritic" type="number" name="metacritic" value="" step="1" min="1" max="100" />
+        <% } %>
+        <br>
+        <label for="myRating">My Rating:</label>
+        <br>
+        <input id="myRating" type="number" name="myRating" value="" step="1" min="1" max="100" />
+        <br>
+        <button class="btn btn-admin-add" type="submit" style="color:white; font-size: large;">Add</button>
+        <button class="btn"><a style="text-decoration: none;" href="/admin">Cancel</a></button>
+    </form>
+</div>
+
+
+<%- include('partials/footer.ejs'); -%>
